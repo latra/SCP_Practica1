@@ -377,7 +377,8 @@ bool CalcularCercaOptima(PtrListaArboles Optimo)
 		if(pthread_join(tids[i], (void**) NULL))
 		{
 			perror("Error al hacer el join del thread\n");
-			exit(1);	
+			pthread_cancel(tids[i]);
+			exit(-1);	
 		}
 		else
 		{
